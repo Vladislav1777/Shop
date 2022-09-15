@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebStoreInterfaces\WebStoreDataContracts.csproj" />
+    <ProjectReference Include="..\WebStoreDataContracts\WebStoreDataContracts.csproj" />
   </ItemGroup>
 
 </Project>
