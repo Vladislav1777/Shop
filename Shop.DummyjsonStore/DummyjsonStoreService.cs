@@ -16,6 +16,7 @@ namespace Shop.DummyjsonStore
     {
         private Logger logger = LogManager.GetCurrentClassLogger();
         private string url = ServiceConfiguration.configuration["dummyjsonUrl"];
+
         public async Task<IList<Product>> GetProductsAsync(ProductFilter filter, CancellationToken cancellationToken)
         {
             string productsjson = null;

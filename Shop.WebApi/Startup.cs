@@ -24,7 +24,16 @@ namespace Shop.WebApi
         {
             services.AddScoped<IStorePartnerstService, DummyjsonStoreService>();
             services.AddScoped<IProductService, ProductService>();
-
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                        builder.AllowAnyOrigin();
+                    });
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -45,7 +54,8 @@ namespace Shop.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

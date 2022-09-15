@@ -33,7 +33,7 @@ namespace Shop.Application
             {
                 try
                 {
-                    var results = await task;
+                    var results = task.GetAwaiter().GetResult();
                     products.AddRange(results);
                 }
                 catch (Exception ex)

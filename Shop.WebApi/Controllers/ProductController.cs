@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Shop.WebStoreDataContracts.Models;
 using Shop.WebStoreDataContracts.Interfaces;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Cors;
 
 namespace Shop.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors()]
     public class ProductController : ControllerBase
     {
         IProductService _productService;
@@ -16,8 +19,9 @@ namespace Shop.WebApi.Controllers
         }
 
         [HttpGet]
+        
         public async Task<ActionResult<IList<Product>>> Get(ProductFilter filter)
-        {
+        {            
             var vm = await _productService.GetProductsAsync(filter);
             return Ok(vm);
         }
